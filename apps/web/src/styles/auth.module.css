@@ -1,0 +1,27 @@
+.wrapper { min-height: 100vh; background: var(--bg); }
+.nav { display:flex; align-items:center; justify-content:space-between; padding:0 32px; height:56px; border-bottom:1px solid var(--border); }
+.logo { font-family:'Syne', sans-serif; font-size:18px; font-weight:700; color:var(--amber); }
+.logo span { color:var(--text2); }
+.backLink { font-size:13px; color:var(--text2); text-decoration:none; transition:color .15s; }
+.backLink:hover { color:var(--text); text-decoration:none; }
+.body { min-height:calc(100vh - 56px); display:flex; align-items:center; justify-content:center; padding:32px 16px; }
+.card { background:var(--bg2); border:1px solid var(--border); border-radius:12px; padding:36px; width:100%; max-width:420px; }
+.heading { font-family:'Syne', sans-serif; font-size:22px; font-weight:700; color:var(--text); margin-bottom:6px; }
+.sub { font-size:13px; color:var(--text2); margin-bottom:28px; }
+.error,.success,.infoBox { border-radius:6px; padding:10px 12px; font-size:13px; margin-bottom:16px; }
+.error { background:rgba(239,68,68,.1); border:1px solid rgba(239,68,68,.25); color:#f87171; }
+.success { background:rgba(34,197,94,.10); border:1px solid rgba(34,197,94,.22); color:#86efac; }
+.infoBox { background:rgba(245,158,11,.08); border:1px solid rgba(245,158,11,.20); color:var(--text); }
+.field { margin-bottom:16px; }
+.label { display:block; font-size:11px; font-weight:600; color:var(--text2); margin-bottom:6px; letter-spacing:.06em; text-transform:uppercase; }
+.input { width:100%; padding:10px 12px; border-radius:7px; background:var(--bg3); border:1px solid var(--border); color:var(--text); font-size:14px; font-family:'DM Sans', sans-serif; outline:none; transition:border-color .15s; }
+.input:focus { border-color:var(--amber); }
+.input::placeholder { color:var(--text3); }
+.submit,.secondary { width:100%; padding:12px; border-radius:7px; font-weight:700; font-size:14px; transition:all .15s; margin-top:8px; }
+.submit { background:var(--amber); color:#000; border:none; }
+.submit:hover { background:var(--amber2); }
+.submit:disabled,.secondary:disabled { opacity:.6; cursor:not-allowed; }
+.secondary { background:transparent; color:var(--text); border:1px solid var(--border2); }
+.secondary:hover { border-color:var(--amber); }
+.footer { margin-top:20px; text-align:center; font-size:13px; color:var(--text2); }
+.footer a { color:var(--amber); }
