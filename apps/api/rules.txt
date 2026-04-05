@@ -1,0 +1,89 @@
+BACKEND RULES
+
+Tato pravidla určují, jak rozšiřovat backend bez změny hlavní struktury projektu.
+
+1. Základní struktura
+- Backend zůstává ve struktuře:
+  - app/api
+  - app/core
+  - app/models
+  - app/repositories
+  - app/schemas
+  - app/services
+  - app/utils
+- Nepřidávat další architekturu typu modules, api/endpoints apod., pokud k tomu není jasný důvod.
+- Nové soubory přidávat do existujících složek podle jejich role.
+
+2. API vrstva
+- app/api obsahuje pouze routy a endpointy.
+- Endpoint má přijmout request, zavolat service a vrátit response.
+- Endpoint nesmí obsahovat složitou business logiku.
+- Endpoint nesmí přistupovat přímo do databáze.
+
+3. Service vrstva
+- app/services obsahuje business logiku.
+- Service řeší, co se má stát a jaká pravidla se mají použít.
+- Service může volat repository a kombinovat více kroků.
+- Service nesmí řešit HTTP detaily.
+
+4. Repository vrstva
+- app/repositories obsahuje práci s databází.
+- Repository řeší select, insert, update a delete.
+- Repository nesmí obsahovat business logiku.
+- Přístup k databázi držet pouze zde.
+
+5. Schemas
+- app/schemas obsahuje request a response modely.
+- Validaci vstupů řešit přes schemas.
+- Response formát držet jednotný a přehledný.
+
+6. Models
+- app/models obsahuje databázové modely.
+- Modely musí odpovídat databázové struktuře.
+- Neumísťovat sem API logiku ani business logiku.
+
+7. Core
+- app/core obsahuje config, database, logging, exceptions a další společné technické části.
+- Sdílené technické věci patří sem, ne do services nebo utils.
+
+8. Utils
+- app/utils obsahuje pouze pomocné funkce.
+- Nepatří sem business logika ani databázový přístup.
+
+9. Naming convention
+- Názvy souborů psát malými písmeny a ve snake_case.
+- Názvy tříd psát v PascalCase.
+- Názvy funkcí a proměnných psát ve snake_case.
+- Názvy souborů volit podle oblasti, např. auth.py, users.py, auth_service.py, user_repository.py.
+
+10. Importy
+- Používat jednotný styl importů v celé aplikaci.
+- Nemíchat více způsobů importu pro stejnou věc.
+- Vyhýbat se cyklickým importům.
+
+11. Databáze a migrace
+- Změny databáze dělat přes migrace.
+- Neupravovat strukturu databáze bez odpovídající migrace.
+- Každá změna databáze musí mít jasný důvod a návaznost na backend.
+
+12. Testy
+- Nové endpointy a důležité service funkce mají mít test.
+- Minimálně testovat hlavní API flow a důležité CRUD operace.
+- Při opravě chyby doplnit nebo upravit test, pokud to dává smysl.
+
+13. Logování a chyby
+- Používat jednotné logování.
+- Chyby zachytávat na správné vrstvě.
+- Interní chyby nelze vracet přímo uživateli bez úpravy.
+- Detail chyby patří do logu, ne do response.
+
+14. Konfigurace
+- Citlivé údaje ukládat pouze do .env.
+- Necommitovat hesla, tokeny, klíče ani lokální tajné konfigurace.
+- .env.example slouží jako vzor.
+
+15. Obecná pravidla
+- Držet backend jednoduchý, čitelný a konzistentní.
+- Neměnit hlavní strukturu bez jasného důvodu.
+- Nejprve doplňovat chybějící části, až potom refaktorovat.
+- Pokud má být změněna struktura backendu, musí být nejdřív popsán důvod a dopad na existující části.
