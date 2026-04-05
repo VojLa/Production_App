@@ -1,0 +1,93 @@
+FRONTEND RULES
+
+Tato pravidla určují, jak rozšiřovat frontend bez změny hlavní struktury projektu.
+
+1. Základní struktura
+- Frontend zůstává ve stávající hlavní struktuře projektu.
+- Nepřidávat novou architekturu nebo další složité členění bez jasného důvodu.
+- Nové soubory přidávat do existujících složek podle jejich role.
+- Zachovat přehlednost a jednoduchost.
+
+2. Stránky a navigace
+- Každá stránka má mít jasný účel.
+- Navigace musí odpovídat struktuře aplikace.
+- Nové stránky přidávat konzistentně podle existující logiky.
+- Nevytvářet zbytečně duplicitní stránky pro stejnou funkci.
+
+3. Komponenty
+- Komponenty mají být malé, přehledné a znovupoužitelné.
+- Jedna komponenta má řešit jednu hlavní věc.
+- Nepřidávat zbytečně velké komponenty s více rolemi najednou.
+- Opakující se UI přesouvat do společných komponent.
+
+4. Rozdělení logiky
+- UI logika patří do komponent.
+- Práce s daty a volání API držet odděleně od čistě vizuálních částí, pokud to dává smysl.
+- Nepřidávat složitou business logiku přímo do prezentace.
+- Komponenta nemá být zbytečně přetížená datovou i vizuální logikou zároveň.
+
+5. API komunikace
+- Volání backendu řešit jednotným způsobem v celé aplikaci.
+- Nemíchat více různých přístupů pro stejné typy volání.
+- Ošetřit loading, error a empty state.
+- Každé API volání musí mít jasný důvod a návaznost na UI.
+
+6. Stav aplikace
+- Lokální stav používat pro lokální chování komponent.
+- Sdílený stav používat jen tam, kde je to opravdu potřeba.
+- Nevytvářet zbytečně globální stav pro věci, které mohou zůstat lokální.
+- Stav držet co nejjednodušší a čitelný.
+
+7. Formuláře
+- Formuláře musí mít jasnou strukturu a validaci.
+- Chybové stavy zobrazovat srozumitelně.
+- Povinná pole a akce musí být z UI jasné.
+- Formulářová logika má být přehledná a snadno upravitelná.
+
+8. Styling
+- Používat jednotný styl napříč aplikací.
+- Dodržovat existující design systém, spacing, velikosti a názvosloví tříd nebo stylů.
+- Nevnášet nové styly bez důvodu tam, kde už existuje použitelný vzor.
+- Preferovat konzistentní vzhled před izolovanými výjimkami.
+
+9. Naming convention
+- Názvy souborů, proměnných a funkcí držet konzistentní.
+- Komponenty pojmenovávat jasně podle jejich účelu.
+- Nevytvářet nejasné nebo příliš obecné názvy.
+- Názvy psát tak, aby bylo hned vidět, k čemu soubor nebo komponenta slouží.
+
+10. Typy a datové modely
+- Typy používat konzistentně v celé aplikaci.
+- Nepoužívat zbytečně any, pokud tomu jde rozumně předejít.
+- Datové struktury z backendu držet co nejvíce sjednocené.
+- Sdílené typy nepsat opakovaně na více místech.
+
+11. Chybové stavy
+- Každá důležitá obrazovka má umět zobrazit loading, chybu i prázdný stav.
+- Chybové hlášky musí být stručné a srozumitelné.
+- Interní technické chyby nezobrazovat uživateli surově.
+- UI se nesmí rozpadnout při neúspěšném načtení dat.
+
+12. Testy
+- Důležité komponenty a hlavní uživatelské scénáře mají mít test.
+- Minimálně testovat základní render, práci s daty a hlavní interakce.
+- Při opravě chyby doplnit nebo upravit test, pokud to dává smysl.
+- Testy psát hlavně tam, kde hrozí opakované rozbití funkce.
+
+13. Přehlednost kódu
+- Držet komponenty i soubory krátké a čitelné.
+- Pokud je soubor příliš velký, rozdělit ho smysluplně.
+- Nepřidávat zbytečný kód, který se nepoužívá.
+- Komentáře psát jen tam, kde skutečně pomáhají.
+
+14. Konfigurace
+- Citlivé údaje nepatří do frontend kódu.
+- Konfiguraci držet přes environment proměnné tam, kde je to potřeba.
+- Necommitovat tajné klíče ani lokální citlivé nastavení.
+- .env.example slouží jako vzor.
+
+15. Obecná pravidla
+- Držet frontend jednoduchý, přehledný a konzistentní.
+- Neměnit hlavní strukturu bez jasného důvodu.
+- Nejprve doplňovat chybějící části, až potom refaktorovat.
+- Pokud má být změněna struktura frontendu, musí být nejdřív popsán důvod a dopad na existující části.
